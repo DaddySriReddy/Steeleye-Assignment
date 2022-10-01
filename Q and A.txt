@@ -1,0 +1,34 @@
+1.Explain what the simple List component does.
+a)The List is a component use to map values present inside the item,which is passed as props to the list component.
+  In this list component we have created two hooks first one is usestate hook and the second one is useeffect hook.
+  Usestate is used for storing the values in index and updating it.
+  Useeffect is used for resetting the value of selectedindex whenever items have been updated.
+
+  We have also used a function called handclick for updating the selectedindex value and this hand click function is called by clickhandler function.
+  We do have a parent component and a child component in this list component.Now we are using a child component within the list to do the main functionality.
+  The main functionality here is that it is changing the color of the item when it is clicked.
+  It takes 4 arguments to do this those are onclickhandler, index, text, isselected bool type.
+  onclickhandler used to handle the javascript onclick function.
+  index is for index value.
+  text which has to be displayed.
+  is selected booltype for checking which index is selected by the user.
+
+
+
+
+2.What problems / warnings are there with code?
+a)1.onClickHandler={() => handleClick(index)} ==> onclick={()->onClickHandler(index)}
+  2.const [setSelectedIndex, selectedIndex] = useState(); ==> const [selectedIndex, setSelectedIndex] = usestate();
+  3. Inside map function we should define key for each item for uniquely identifying the each item.
+     key={index}
+  4. isSelected={selectedIndex} ==> isSelected={selectedIndex-index}
+  5. Inside WrappedlistComponent.propTypes it should be arrayof not array and it should be shape not shapeof, these both are syntax errors and also in shape validation of index is not provided its validation should also be updated in the code. 
+     wrappedListComponent.propTypes = {
+      items: PropTypes.arrayof (PropTypes.shape({
+      text: PropTypes.string.isRequired, index: PropTypes.number
+      })),
+      };
+
+
+3)Please fix, optimize, and/or modify the component as much as you think is necessary.
+a) Already Pushed in the github.
